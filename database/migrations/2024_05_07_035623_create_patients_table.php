@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\AccountType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -27,8 +28,8 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('barangay')->nullable();
             $table->string('zipcode')->nullable();
-            $table->string('zipcode')->nullable();
-            $table->tinyInteger('account_type')->nullable(0);
+            // $table->tinyInteger('account_type')->nullable(0);
+            $table->foreignIdFor(AccountType::class);
             $table->string('account_detail')->nullable();
             $table->tinyInteger('is_pre_employment')->default(0);
             $table->string('created_by')->nullable();

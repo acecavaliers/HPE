@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->tinyInteger('is_active')->default(0);
-            $table->foreignIdFor(Patient::class)->constrained('patient');
+            $table->foreignIdFor(Patient::class)->constrained('patients');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->string('deleted_by')->nullable();

@@ -10,6 +10,8 @@ class Patient extends Model
 {
     use HasFactory, SoftDeletes;
 
+    // protected $foreignKeys = ['account_types'=>'account_type_id'];
+
     protected $fillable = [
 
         'first_name',
@@ -26,8 +28,7 @@ class Patient extends Model
         'city',
         'barangay',
         'zipcode',
-        'zipcode',
-        'account_type',
+        'account_type_id',
         'account_detail',
         'is_pre_employment',
         'created_by',
@@ -35,4 +36,16 @@ class Patient extends Model
         'deleted_by'
 
     ];
+    public function accountType()
+      {
+          return $this->belongsTo(AccountType::class);
+      }
+    // public function getForeignKeys(){
+    //     return $this->foreignKeys;
+    // }
+    // public function accountType()
+    // {
+    //     return $this->belongsTo(AccountType::class, 'account_type_id');
+    // }
+
 }

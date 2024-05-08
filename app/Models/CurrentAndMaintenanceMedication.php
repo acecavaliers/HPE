@@ -10,7 +10,7 @@ class CurrentAndMaintenanceMedication extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $foreignKeys = ['illnesses'=>'patient_id'];
+    protected $foreignKeys = ['patients'=>'patient_id'];
 
     protected $fillable = [
 
@@ -26,7 +26,7 @@ class CurrentAndMaintenanceMedication extends Model
     public function getForeignKeys(){
         return $this->foreignKeys;
     }
-    public function illnesses()
+    public function patients()
     {
         return $this->belongsTo(Patient::class, 'patient_id');
     }
