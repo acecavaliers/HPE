@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('barangay')->nullable();
             $table->string('zipcode')->nullable();
             // $table->tinyInteger('account_type')->nullable(0);
-            $table->foreignIdFor(AccountType::class);
+            $table->foreignIdFor(AccountType::class)->constrained('account_types');
             $table->string('account_detail')->nullable();
             $table->tinyInteger('is_pre_employment')->default(0);
             $table->string('created_by')->nullable();

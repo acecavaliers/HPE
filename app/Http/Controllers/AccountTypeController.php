@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AccountTypeStoreRequest;
 use App\Models\AccountType;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class AccountTypeController extends Controller
      */
     public function index()
     {
-        //
+        return AccountType::paginate(5);
     }
 
     /**
@@ -26,9 +27,11 @@ class AccountTypeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AccountTypeStoreRequest $request)
     {
-        //
+        AccountType::create($request->validated());
+
+        return response()->json('Saved');
     }
 
     /**
